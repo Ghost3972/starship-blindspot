@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- 相机权限 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+
+    <!-- 悬浮窗权限 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <!-- 读取日志权限（用于监听转向信号） -->
+    <uses-permission android:name="android.permission.READ_LOGS" />
+
+    <!-- 前台服务权限 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CAMERA" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+
+    <!-- 开机启动权限 -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+
+    <!-- 唤醒锁权限 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    
+    <!-- Android Car API 权限（车速/档位/刹车实时读取） -->
+    <uses-permission android:name="android.car.permission.CAR_SPEED" />
+    <uses-permission android:name="android.car.permission.CAR_POWERTRAIN" />
+    <uses-permission android:name="android.car.permission.CAR_DYNAMICS_STATE" />
+    <uses-permission android:name="android.car.permission.CAR_VENDOR_EXTENSION" />
+    
+    <!-- 存储权限（录制和回放视频） -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" 
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission
+        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    
+    <!-- 震动反馈权限（长按拖动反馈） -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!-- 网络权限（用于连接本地 ADB daemon） -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- HUD 多屏幕功能权限（需要通过 ADB 授权） -->
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" 
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.MANAGE_ACTIVITY_STACKS" 
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.INTERNAL_SYSTEM_WINDOW" 
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.START_ACTIVITIES_FROM_BACKGROUND" 
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS" 
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" 
+        tools:ignore="ProtectedPermissions" />
+
+    <application
+        android:name=".BlindspotApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.TurningBlindSpot"
+        tools:targetApi="31">
+
+        <!-- 主 Activity：权限请求和设置 -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.TurningBlindSpot">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".PhotoCenterActivity"
+            android:exported="false"
+            android:theme="@style/Theme.TurningBlindSpot" />
+
+        <activity
+            android:name=".PhotoViewerActivity"
+            android:exported="false"
+            android:theme="@style/Theme.TurningBlindSpot" />
+
+        <activity
+            android:name=".PhotoGroupActivity"
+            android:exported="false"
+            android:theme="@style/Theme.TurningBlindSpot" />
+
+        <!-- 补盲视角校准 Activity -->
+        <activity
+            android:name=".BlindspotCalibrationActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+
+        <activity
+            android:name=".LayoutEditorActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+
+        <!-- 转向补盲悬浮窗服务 -->
+        <service
+            android:name=".TurningBlindSpotService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="camera|specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="turning_blind_spot_camera_preview" />
+        </service>
+
+        <!-- 开机启动广播接收器 -->
+        <receiver
+            android:name=".BootReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:directBootAware="true">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+                
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>

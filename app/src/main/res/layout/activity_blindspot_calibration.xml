@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/page_background">
+
+    <!-- 顶部标题栏（白色卡片风格） -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp"
+        android:background="@color/card_background"
+        android:elevation="2dp">
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:text="← 返回"
+            android:textSize="20sp"
+            android:textColor="@color/text_primary"
+            android:background="@drawable/btn_secondary"
+            android:stateListAnimator="@null"
+            android:paddingHorizontal="20dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="补盲画面校准"
+            android:textSize="24sp"
+            android:textColor="@color/text_primary"
+            android:gravity="center"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:text="保存"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:background="@drawable/btn_primary"
+            android:stateListAnimator="@null"
+            android:paddingHorizontal="28dp" />
+
+    </LinearLayout>
+
+    <!-- 左/右切换 + 重置 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="12dp"
+        android:background="@color/card_background"
+        android:layout_marginTop="1dp">
+
+        <Button
+            android:id="@+id/btn_left"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="52dp"
+            android:text="◀ 左视角"
+            android:textSize="20sp"
+            android:textColor="@color/button_accent"
+            android:background="@drawable/btn_secondary"
+            android:stateListAnimator="@null" />
+
+        <Button
+            android:id="@+id/btn_right"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="52dp"
+            android:text="右视角 ▶"
+            android:textSize="20sp"
+            android:textColor="@color/text_secondary"
+            android:background="@drawable/btn_secondary"
+            android:stateListAnimator="@null"
+            android:layout_marginStart="8dp" />
+
+        <Button
+            android:id="@+id/btn_reset"
+            android:layout_width="wrap_content"
+            android:layout_height="52dp"
+            android:text="重置"
+            android:textSize="18sp"
+            android:textColor="@color/danger_text"
+            android:background="@drawable/btn_secondary"
+            android:stateListAnimator="@null"
+            android:paddingHorizontal="20dp"
+            android:layout_marginStart="8dp" />
+
+    </LinearLayout>
+
+    <!-- 主体区域：鱼眼画面 + 裁切框 -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/camera_bg"
+        android:layout_margin="12dp">
+
+        <!-- 完整鱼眼画面 -->
+        <ImageView
+            android:id="@+id/image_full"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:background="@color/camera_bg" />
+
+        <!-- 裁切框覆盖层 -->
+        <View
+            android:id="@+id/crop_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- 操作提示 -->
+        <TextView
+            android:id="@+id/tv_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:text="拖动框体移动位置 · 拖动右下角调整大小"
+            android:textColor="@color/overlay_light_text"
+            android:textSize="14sp"
+            android:background="@color/overlay_dark"
+            android:padding="8dp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- 右下角预览框 -->
+        <FrameLayout
+            android:layout_width="200dp"
+            android:layout_height="125dp"
+            android:layout_gravity="top|end"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/card_background"
+            android:elevation="4dp"
+            android:padding="3dp">
+
+            <ImageView
+                android:id="@+id/preview_result"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:background="@color/camera_bg" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:text="补盲效果"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp"
+                android:background="@color/overlay_light_text"
+                android:paddingHorizontal="6dp"
+                android:paddingVertical="1dp" />
+
+        </FrameLayout>
+
+    </FrameLayout>
+
+</LinearLayout>

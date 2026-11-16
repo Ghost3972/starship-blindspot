@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/page_background">
+
+    <!-- Fragment 容器 -->
+    <FrameLayout
+        android:id="@+id/content_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- 底部导航栏 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:background="@drawable/card_background"
+        android:elevation="8dp"
+        android:gravity="center">
+
+        <!-- 预览标签 -->
+        <LinearLayout
+            android:id="@+id/tab_preview"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:id="@+id/tab_preview_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📹"
+                android:textSize="28sp"
+                android:textColor="@color/button_accent" />
+
+            <TextView
+                android:id="@+id/tab_preview_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="预览"
+                android:textSize="14sp"
+                android:textColor="@color/button_accent"
+                android:layout_marginTop="2dp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="40dp"
+            android:background="@color/divider_color" />
+
+        <!-- 补盲标签 -->
+        <LinearLayout
+            android:id="@+id/tab_blindspot"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:id="@+id/tab_blindspot_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="◀▶"
+                android:textSize="24sp"
+                android:textColor="@color/text_secondary" />
+
+            <TextView
+                android:id="@+id/tab_blindspot_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="补盲"
+                android:textSize="14sp"
+                android:textColor="@color/text_secondary"
+                android:layout_marginTop="2dp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="40dp"
+            android:background="@color/divider_color" />
+
+        <!-- 回放标签 -->
+        <LinearLayout
+            android:id="@+id/tab_playback"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:id="@+id/tab_playback_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="▶"
+                android:textSize="28sp"
+                android:textColor="@color/text_secondary" />
+
+            <TextView
+                android:id="@+id/tab_playback_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="回放"
+                android:textSize="14sp"
+                android:textColor="@color/text_secondary"
+                android:layout_marginTop="2dp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="40dp"
+            android:background="@color/divider_color" />
+
+        <!-- 设置标签 -->
+        <LinearLayout
+            android:id="@+id/tab_settings"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:id="@+id/tab_settings_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⚙"
+                android:textSize="28sp"
+                android:textColor="@color/text_secondary" />
+
+            <TextView
+                android:id="@+id/tab_settings_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="设置"
+                android:textSize="14sp"
+                android:textColor="@color/text_secondary"
+                android:layout_marginTop="2dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

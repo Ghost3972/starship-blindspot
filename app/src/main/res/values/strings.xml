@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">星星舰见记录仪</string>
+    <string name="permission_title">需要权限</string>
+    <string name="permission_camera">相机权限：用于显示转向盲区画面</string>
+    <string name="permission_overlay">悬浮窗权限：用于在其他应用上显示盲区画面</string>
+    <string name="permission_logs">日志权限：用于监听转向信号（需ADB授权）</string>
+    <string name="btn_start_service">启动服务</string>
+    <string name="btn_stop_service">停止服务</string>
+    <string name="setting_show_indicator">显示方向提醒条</string>
+    <string name="status_running">运行中</string>
+    <string name="status_stopped">已停止</string>
+    <string name="notification_title">星星舰见记录仪</string>
+    <string name="notification_text">服务运行中</string>
+    
+    <!-- 关于页面 -->
+    <string name="about_title">关于软件</string>
+    <string name="about_author">由抖音@邪恶银渐层制作领克版本，抖音@星星舰见制作E02适配</string>
+    <string name="about_thanks">开发不易，如果您认为该软件对您有用，欢迎您赞赏！\n感谢所有的打赏老哥！</string>
+    <string name="about_donate">扫码赞赏</string>
+    
+    <!-- 设置区域标题 -->
+    <string name="section_permissions">权限状态</string>
+    <string name="section_settings">功能设置</string>
+    <string name="section_control">服务控制</string>
+    
+    <!-- 新增设置 -->
+    <string name="setting_auto_start">开机自启动</string>
+    <string name="setting_auto_start_desc">车机唤醒或重启后自动启动服务</string>
+    <string name="setting_show_floating_window">悬浮窗显示</string>
+    <string name="setting_show_floating_window_desc">关闭后补盲悬浮窗不会弹出</string>
+    <string name="setting_floating_window_rotation">悬浮窗旋转</string>
+    <string name="setting_floating_window_rotation_desc">左/右转可分别设置，仅旋转画面显示</string>
+    <string name="setting_floating_window_rotation_left">左转</string>
+    <string name="setting_floating_window_rotation_right">右转</string>
+</resources>

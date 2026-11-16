@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Flyme Auto 2 风格 - 日间模式 -->
+    <color name="page_background">#F5F7FA</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="card_background_secondary">#F8F9FB</color>
+    <color name="menu_background">#F5F7FA</color>
+    <color name="nav_background">#FFFFFF</color>
+    <color name="button_background">#FFFFFF</color>
+    <color name="button_accent">#2979FF</color>
+    <color name="button_accent_light">#E3F0FF</color>
+    <color name="button_text">#1A1A1A</color>
+    <color name="text_primary">#1A1A1A</color>
+    <color name="text_secondary">#8A8A8A</color>
+    <color name="text_hint">#BDBDBD</color>
+    <color name="divider_color">#0A000000</color>
+
+    <!-- 状态颜色 -->
+    <color name="status_running">#00C853</color>
+    <color name="status_running_bg">#E8F5E9</color>
+    <color name="status_stopped">#9E9E9E</color>
+    <color name="status_stopped_bg">#F5F5F5</color>
+    <color name="status_favorite">#FFD700</color>
+
+    <!-- 控件颜色 -->
+    <color name="switch_track_on">#2979FF</color>
+    <color name="switch_track_off">#E0E0E0</color>
+    <color name="seekbar_progress">#2979FF</color>
+    <color name="seekbar_background">#E8EAED</color>
+    <color name="item_selected_bg">#142979FF</color>
+
+    <!-- 渐变色 -->
+    <color name="gradient_start">#2979FF</color>
+    <color name="gradient_end">#00BCD4</color>
+
+    <!-- 图标背景色 -->
+    <color name="ic_launcher_background">#FFFFFF</color>
+    <color name="icon_bg_blue">#E3F0FF</color>
+    <color name="icon_bg_green">#E8F5E9</color>
+    <color name="icon_bg_orange">#FFF3E0</color>
+    <color name="icon_bg_purple">#F3E5F5</color>
+
+    <!-- 警告/危险颜色 -->
+    <color name="danger_background">#FFEBEE</color>
+    <color name="danger_text">#D32F2F</color>
+    <color name="danger_text_secondary">#C62828</color>
+
+    <!-- 相机/视频相关 -->
+    <color name="thumbnail_placeholder">#E0E0E0</color>
+    <color name="overlay_dark">#40000000</color>
+    <color name="overlay_light_text">#80FFFFFF</color>
+    <color name="camera_panel_bg">#1A1A1A</color>
+    <color name="camera_btn_bg">#333333</color>
+    <color name="camera_bg">#000000</color>
+
+    <!-- 按钮状态 -->
+    <color name="button_disabled">#666666</color>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/root_layout"
+    android:background="@android:color/black">
+
+    <!-- 模糊背景层 (用于仪表盘模式，alpha 控制显隐) -->
+    <ImageView
+        android:id="@+id/blur_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:alpha="0" />
+
+    <!-- 镜像预览层 (从服务获取截图) -->
+    <!-- background=black 消除 HUD 白边，由 ImageView 自身提供而非窗口背景 -->
+    <ImageView
+        android:id="@+id/mirror_preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@android:color/black"
+        android:scaleType="centerCrop"
+        android:alpha="0" />
+
+</FrameLayout>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/page_background">
+
+    <!-- 顶部标题栏 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="24dp"
+        android:background="@drawable/card_background">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="▶"
+            android:textSize="36sp"
+            android:textColor="@color/button_accent"
+            android:layout_marginEnd="16dp"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="视频回放"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"/>
+
+        <Button
+            android:id="@+id/btn_refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:text="刷新"
+            android:textSize="21sp"
+            android:textColor="@color/button_accent"
+            android:background="@drawable/btn_secondary"
+            android:paddingHorizontal="24dp"
+            android:stateListAnimator="@null"/>
+
+    </LinearLayout>
+
+    <!-- 收藏/全部切换标签 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:background="@color/card_background">
+
+        <Button
+            android:id="@+id/btn_tab_all"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_weight="1"
+            android:text="全部视频"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/button_accent"
+            android:stateListAnimator="@null"
+            android:layout_marginEnd="8dp"/>
+
+        <Button
+            android:id="@+id/btn_tab_favorites"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_weight="1"
+            android:text="★ 收藏"
+            android:textSize="20sp"
+            android:textColor="@color/text_secondary"
+            android:backgroundTint="@color/button_background"
+            android:stateListAnimator="@null"
+            android:layout_marginStart="8dp"/>
+
+    </LinearLayout>
+
+    <!-- 存储路径信息 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="存储位置："
+            android:textSize="21sp"
+            android:textColor="@color/text_secondary"/>
+
+        <TextView
+            android:id="@+id/tv_storage_path"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="/sdcard/DCIM/BlindspotVideo/"
+            android:textSize="21sp"
+            android:textColor="@color/text_hint"
+            android:singleLine="true"
+            android:ellipsize="middle"/>
+
+        <TextView
+            android:id="@+id/tv_video_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 个视频"
+            android:textSize="21sp"
+            android:textColor="@color/button_accent"
+            android:layout_marginStart="16dp"/>
+
+    </LinearLayout>
+
+    <!-- 视频列表 -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp">
+
+        <!-- 空状态提示 -->
+        <LinearLayout
+            android:id="@+id/empty_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📹"
+                android:textSize="72sp"
+                android:textColor="@color/text_hint"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="暂无录制视频"
+                android:textSize="30sp"
+                android:textColor="@color/text_hint"
+                android:layout_marginTop="24dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="录制的视频会显示在这里"
+                android:textSize="24sp"
+                android:textColor="@color/text_hint"
+                android:layout_marginTop="12dp"/>
+
+        </LinearLayout>
+
+        <!-- 视频网格列表 -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_videos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"/>
+
+    </FrameLayout>
+
+</LinearLayout>
